@@ -1,0 +1,8 @@
+description "statsd"
+
+start on startup
+stop on shutdown
+
+script
+    exec sudo -u <%= node['statsd']['user'] %> statsd -o <%= @destination %> 2>&1 >> <%= node['statsd']['log_file'] %>
+end script
