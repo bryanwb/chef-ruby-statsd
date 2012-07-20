@@ -31,7 +31,7 @@ logrotate_app "statsd" do
   path node["statsd"]["log_file"]
   frequency "daily"
   rotate 7
-  create "644 node['statsd']['user'] node['statsd']['user'] "
+  create "644 #{node['statsd']['user']} #{node['statsd']['user']} "
 end
 
 service "statsd" do
